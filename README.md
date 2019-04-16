@@ -1,5 +1,7 @@
 # terraform-azurerm-database
 
+*** IN DEVELOPMENT. DO NOT USE. ***
+
 Migrated from terraform-azurerm-database MSSQL module example. Adapted to support Azure MySQL.
  
 [![Build Status](https://travis-ci.org/Azure/terraform-azurerm-database.svg?branch=master)](https://travis-ci.org/Azure/terraform-azurerm-database)
