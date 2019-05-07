@@ -2,11 +2,6 @@ variable "rgid" {
   description = "RGID used for naming"
 }
 
-variable "location" {
-  default     = "southcentralus"
-  description = "Location for resources to be created"
-}
-
 variable "count" {
   default = "1"
 }
@@ -40,6 +35,7 @@ variable "server_name" {
 }
 
 variable "db_username" {
+  default = "dbadmin"
   description = "Azure MySQL database username.  Has all privileges granted by default."
 }
 
@@ -53,7 +49,6 @@ locals {
 
   name_prefix = "${var.name_prefix != "" ? var.name_prefix : local.default_name_prefix}"
   name        = "${local.name_prefix}${local.type}"
-  db_username = "${var.db_username ? var.db_username : local.name}"
 }
 
 # This module provides a data map output to lookup naming standard references
