@@ -18,9 +18,9 @@ resource "azurerm_mysql_database" "db" {
 }
 
 resource "mysql_user" "db-user" {
-  #user     = "${var.db_username}"
-  user     = "${local.name}${format("%03d", count.index + 1)}-admin"
-  host     = "${var.server_name}.mysql.database.azure.com:3306"
+  user = "${local.name}${format("%03d", count.index + 1)}-admin"
+  #host     = "${var.server_name}.mysql.database.azure.com:3306"
+  host     = "%"
   password = "${random_string.password.result}"
 }
 
