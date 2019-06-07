@@ -18,14 +18,15 @@ resource "azurerm_mysql_database" "db" {
 }
 
 resource "mysql_user" "db-user" {
-  user = "${var.db_username}"
-  host = "${var.server_name}.mysql.database.azure.com:3306"
+  #user     = "${var.db_username}"
+  user     = "${local.name}${format("%03d", count.index + 1)}-admin"
+  host     = "${var.server_name}.mysql.database.azure.com:3306"
   password = "${random_string.password.result}"
 }
 
 resource "mysql_grant" "db-user-grant" {
-  user   = "${mysql_user.db-user.user}"
-  host   = "${mysql_user.db-user.host}"
+  user       = "${mysql_user.db-user.user}"
+  host       = "${mysql_user.db-user.host}"
   database   = "${azurerm_mysql_database.db.name}"
   grant      = true
   privileges = ["ALL"]

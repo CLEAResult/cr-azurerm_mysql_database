@@ -35,7 +35,7 @@ variable "server_name" {
 }
 
 variable "db_username" {
-  default = "dbadmin"
+  default     = "dbadmin"
   description = "Azure MySQL database username.  Has all privileges granted by default."
 }
 
